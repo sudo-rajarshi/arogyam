@@ -3,7 +3,6 @@ from flask_ngrok import run_with_ngrok
 import cv2
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
 import shutil
