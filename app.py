@@ -8,7 +8,20 @@ import numpy as np
 import os
 import shutil
 
-assets_dir = 'assets'
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+
+tf.config.experimental.list_physical_devices()
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+
+if physical_devices != []:
+    print("Using GPU")
+    for i in physical_devices:
+        tf.config.experimental.set_memory_growth(i, True)
+else:
+    print("Using CPU")
+    pass
+
+assets_dir = 'database'
 if not os.path.exists(assets_dir):
     os.mkdir(assets_dir)
 else:
@@ -42,7 +55,7 @@ def oct_index():
 def oct_prediction():
     global cnt_oct
     img = request.files['image']
-    file = 'assets/oct/{}.jpg'.format(cnt_oct)
+    file = os.path.join(assets_dir, 'oct', '{}.jpg'.format(cnt_oct))
     img.save(file)
     
     # pre-process
@@ -63,7 +76,7 @@ def oct_prediction():
     drusen = round(prediction[0,2], 2)
     normal = round(prediction[0,3], 2)
     
-    preds = np.array([cnv, dme, drusen, normal])
+    preds = np.array([cnv*100, dme*100, drusen*100, normal*100])
     cnt_oct += 1
     return render_template('oct_prediction.html', data=preds)
 
@@ -75,7 +88,7 @@ def cxr_index():
 def cxr_prediction():
     global cnt_cxr
     img = request.files['image']
-    file = 'assets/cxr/{}.jpg'.format(cnt_cxr)
+    file = os.path.join(assets_dir, 'cxr', '{}.jpg'.format(cnt_cxr))
     img.save(file)
     
     # pre-process
@@ -95,7 +108,7 @@ def cxr_prediction():
     covid = round(prediction[0,1], 2)
     normal = round(prediction[0,2], 2)
     
-    preds = np.array([pneumonia, covid, normal])
+    preds = np.array([pneumonia*100, covid*100, normal*100])
     cnt_cxr += 1
     return render_template('cxr_prediction.html', data=preds)
 
@@ -103,12 +116,12 @@ def cxr_prediction():
 @app.route('/load_img_oct')
 def load_img_oct():
     global cnt_oct
-    return send_from_directory('assets/oct/', "{}.jpg".format(cnt_oct-1))
+    return send_from_directory(os.path.join(assets_dir,'oct'),'{}.jpg'.format(cnt_oct-1))
 
 @app.route('/load_img_cxr')
 def load_img_cxr():
     global cnt_cxr
-    return send_from_directory('assets/cxr/', "{}.jpg".format(cnt_cxr-1))
+    return send_from_directory(os.path.join(assets_dir,'cxr'),'{}.jpg'.format(cnt_cxr-1))
 
 
 if __name__ == '__main__':
