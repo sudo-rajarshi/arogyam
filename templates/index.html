@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>arogyam</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=1, shrink-to-fit=yes">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+        integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+        * {
+            font-family: 'Roboto Slab', serif
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><b>arogyam</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><b>Home </b><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cxr"><b>Covid Detector</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/oct"><b>Retinal Disease Detector</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <center style="padding: 15px;">
+        <div class='cont'>
+            <h1><b>Disease Detection & Classification</b></h1>
+            <p>
+                <br>
+                This project is in early stage of development.
+                <br>
+                The sole purpose of this project is to help doctors in classifying diseases.
+                <br><br>
+            </p>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><b>COVID-19 Detector</b></h3>
+                                <p class="card-text">Detect COVID-19 from CXR Scans with an accuracy of 99.1%</p>
+                                <a href="/cxr" class="btn btn-primary">Click Here</a>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><b>Retinal Disease Detector</b></h3>
+                                <p class="card-text">Detect Retinal Disease from OCT Scans with an accuracy of 96.5%</p>
+                                <a href="/oct" class="btn btn-primary">Click Here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <h2><b>About Us</b></h2>
+                <br>
+            </div>
+            <div class="row justify-content-center">
+
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-horizontal" style="display: flex; flex: 1 1 auto; padding:0.25rem;">
+                                <img class="img-square" src="{{url_for('static',filename = 'rajarshi.jpeg')}}"
+                                    style="width: 100px;height:134px;padding-top: 20px;padding-bottom: 6px;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="font-size:19px; text-align: left;">
+                                        <b>Rajarshi Bhadra</b>
+                                    </h4>
+                                    <p class="card-text" style="text-align:left">Deep Learning<br>
+                                        Researcher </p>
+
+                                    <p class="card-text" style="text-align:left"><a
+                                        href="https://github.com/sudo-rajarshi" target="_blank"><i
+                                            class="fab fa-github fa-2x"></i></a> &nbsp; &nbsp;<a
+                                        href="https://www.linkedin.com/in/rajarshi-bhadra/" target="_blank"><i
+                                            class="fab fa-linkedin fa-2x"></i></a> &nbsp; &nbsp;<a
+                                        href="https://scholar.google.com/citations?hl=en&user=U7NBU90AAAAJ"
+                                        target="_blank"><i class="ai ai-google-scholar-square ai-2x"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-horizontal" style="display: flex; flex: 1 1 auto;padding:0.25rem;">
+
+                                <img class="img-square" src="{{url_for('static',filename = 'shrabana.jpg')}}"
+                                    style="width: 100px;height: 134px;padding-top: 20px; padding-bottom: -28px;padding-bottom: 6px;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="font-size:19px; text-align: left;">
+                                        <b>Shrabana Saha</b>
+                                    </h4>
+                                    <p class="card-text" style="text-align:left;">
+                                        Front End <br> Web Developer</p>
+
+                                    <p class="card-text" style="text-align:left"><a
+                                        href="https://github.com/Shrabana97" target="_blank"><i
+                                            class="fab fa-github fa-2x"></i></a> &nbsp; &nbsp;<a
+                                        href="https://www.linkedin.com/in/shrabana-saha-4858b519a/" target="_blank"><i
+                                            class="fab fa-linkedin fa-2x"></i></a> &nbsp;<a
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <br>
+        </div>
+
+    </center>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"
+        integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

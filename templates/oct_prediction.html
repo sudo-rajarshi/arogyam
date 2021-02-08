@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <title>Result</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=yes">
+        <meta charset="UTF-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+            *{font-family: 'Roboto Slab', serif}
+
+            .h1{
+                padding: 20px;
+
+            }
+            
+          </style>
+    </head>
+
+    <body>
+        <center>
+            <br>
+            <div class='cont' style="padding: 0px;">
+                
+                
+                {% if data[0] > 0.50 %}
+                <h1 style="padding: 0px;">RESULT: Choroidal Neovascularization (CNV)</h1>
+
+                {% elif data[1] > 0.50 %}
+                <h1 style="padding: 0px;">RESULT: Diabetic Macular Edema (DME)</h1>
+
+                {% elif data[2] > 0.50 %}
+                <h1 style="padding: 0px;">RESULT: DRUSEN</h1>
+                
+                {% elif data[3] > 0.50 %}
+                <h1 style="padding: 0px;">RESULT: Normal</h1>
+                
+                {%endif%}
+
+            </div>
+            
+            <br>
+
+            <h2><b><u>Prediction Scores</u></b></h2>
+
+            <div class="table-responsive" style="padding: 0px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CNV</th>
+                            <th style="padding: 0px;"> &nbsp; &nbsp; DME</th>
+                            <th style="padding: 0px;"> &nbsp; &nbsp; Drusen</th>
+                            <th style="padding: 0px;"> &nbsp; &nbsp; Healthy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center">
+                            <td style="padding: 0px;">&nbsp;{{data[0]}}</td>
+                            <td style="padding: 0px;">&nbsp; &nbsp;{{data[1]}}</td>
+                            <td style="padding: 0px;">&nbsp; &nbsp;{{data[2]}}</td>
+                            <td style="padding: 0px;">&nbsp; &nbsp;{{data[3]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+            <br>
+            <img src="{{url_for('load_img_oct')}}" alt='img' style="padding: 0px;">
+            <br>
+            <br>
+            <br>
+            <a href="/oct" class='btn' style="padding: 0px;">Make another prediction</a>
+
+        </center>
+        
+    </body>
+</html>

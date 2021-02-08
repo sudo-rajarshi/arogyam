@@ -1,0 +1,5 @@
+Flask==1.1.2
+tensorflow==2.4.0
+numpy==1.19.5
+opencv_python==4.5.1.48
+flask_ngrok==0.0.25

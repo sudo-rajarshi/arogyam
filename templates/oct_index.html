@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Retinal Disease Predictor</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=yes">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+        integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+        * {
+            font-family: 'Roboto Slab', serif
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><b>arogyam</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><b>Home </b><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cxr"><b>Covid Detector</b></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/oct"><b>Retinal Disease Detector</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <center style="padding: 15px;">
+        <div class='cont'>
+            <h1><b>Retinal Disease Detection from OCT scans</b></h1>
+            <p>
+                This system is tested on 8,446 images.
+            <h3><b>Overall Classification Result</b></h3>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th>Accuracy</th>
+                            <th> &nbsp; &nbsp; Sensitivity</th>
+                            <th> &nbsp; &nbsp; Specificity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>96.5%</td>
+                            <td> &nbsp; 99.1%</td>
+                            <td> &nbsp; 97.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+            <h3><b>Sensitivities</b></h3>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CNV</th>
+                            <th> &nbsp; &nbsp; DME</th>
+                            <th> &nbsp; &nbsp; Drusen</th>
+                            <th> &nbsp; &nbsp; Healthy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center">
+                            <td> &nbsp; 97%</td>
+                            <td> &nbsp; &nbsp; &nbsp; 95%</td>
+                            <td> &nbsp; &nbsp; 87%</td>
+                            <td> &nbsp; &nbsp; 97%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+            To know more about this project, please go through our <a
+                href="https://ieeexplore.ieee.org/document/9276708" target="_blank">research paper</a>.
+            </p>
+        </div>
+
+        <br>
+
+        <form method="POST" action="{{url_for('oct_prediction')}}" enctype="multipart/form-data">
+            <h2><b>Select an Optical Coherence Tomographical scan</b></h2><br>
+            <input type="file" name='image' class='btn' style="font-size: 15px; padding: 0px; width: 200px"><br><br>
+            <input type="submit" class='btn btn-primary' style="font-size: 15px; border-radius: 20px">
+        </form>
+        <br>
+    </center>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"
+        integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
