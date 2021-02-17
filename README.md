@@ -13,5 +13,5 @@
 * `sudo pip3 install -r requirements.txt`
 * `sudo python3 app.py`
 
-## Others:
+### Others:
 * Use [this](https://colab.research.google.com/drive/1RMhjdGdD6z56yfyFs7uoE5pMWihGvEoV#scrollTo=L7XcXOKhsoSV) jupyter notebook in colab.
