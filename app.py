@@ -6,6 +6,8 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import os
 import shutil
+import webbrowser
+from threading import Timer
 
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 
@@ -20,7 +22,9 @@ else:
     print("Using CPU")
     pass
 
-assets_dir = 'database'
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+assets_dir = os.path.join(dir_path, 'database')
 if not os.path.exists(assets_dir):
     os.mkdir(assets_dir)
 else:
@@ -30,8 +34,8 @@ else:
 os.mkdir(os.path.join(assets_dir, 'oct'))
 os.mkdir(os.path.join(assets_dir, 'cxr'))
 
-oct_model = load_model('models/oct_model.h5')
-cxr_model = load_model('models/cxr_model.h5')
+oct_model = load_model(os.path.join(dir_path, 'models', 'oct_model.h5'))
+cxr_model = load_model(os.path.join(dir_path, 'models', 'cxr_model.h5'))
 
 print("***** models loaded")
 
@@ -40,7 +44,7 @@ cnt_cxr = 0
 
 app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 1
-run_with_ngrok(app)
+
 
 @app.route('/')
 def index():
@@ -107,7 +111,7 @@ def cxr_prediction():
     covid = round(prediction[0,1], 2)
     normal = round(prediction[0,2], 2)
     
-    preds = np.array([pneumonia*100, covid*100, normal*100])
+    preds = np.array([int(pneumonia*100), int(covid*100), int(normal*100)])
     cnt_cxr += 1
     return render_template('cxr_prediction.html', data=preds)
 
@@ -122,8 +126,12 @@ def load_img_cxr():
     global cnt_cxr
     return send_from_directory(os.path.join(assets_dir,'cxr'),'{}.jpg'.format(cnt_cxr-1))
 
+def open_browser():
+      webbrowser.open_new('http://127.0.0.1:5000/')
+
 
 if __name__ == '__main__':
+    Timer(1, open_browser).start();
     app.run()
 
 
