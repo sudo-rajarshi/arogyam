@@ -1,4 +1,4 @@
-# arogyam
+# arogyam [![GitHub license](https://img.shields.io/github/license/sudo-rajarshi/arogyam)](https://github.com/sudo-rajarshi/arogyam/blob/master/LICENSE)
 
 ## About
 * An AI integrated website, where the user will get to know whether he or she is infected by viruses or diseases based on their medical documentations.
