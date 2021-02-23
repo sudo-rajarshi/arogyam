@@ -1,4 +1,8 @@
-# arogyam [![GitHub license](https://img.shields.io/github/license/sudo-rajarshi/arogyam)](https://github.com/sudo-rajarshi/arogyam/blob/master/LICENSE)
+# arogyam 
+
+[![GitHub issues](https://img.shields.io/github/issues/sudo-rajarshi/arogyam)](https://github.com/sudo-rajarshi/arogyam/issues)
+[![GitHub stars](https://img.shields.io/github/stars/sudo-rajarshi/arogyam)](https://github.com/sudo-rajarshi/arogyam/stargazers)
+[![GitHub license](https://img.shields.io/github/license/sudo-rajarshi/arogyam)](https://github.com/sudo-rajarshi/arogyam/blob/master/LICENSE)
 
 ## About
 * An AI integrated website, where the user will get to know whether he or she is infected by viruses or diseases based on their medical documentations.
