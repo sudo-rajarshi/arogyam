@@ -22,13 +22,13 @@
             <br>
             <div class='cont' style="padding: 0px;"> 
                 
-                {%if data[0] > 0.50 %}
+                {%if data[0] > 50 %}
                 <h1 style="padding: 0px;">RESULT: Pneumonia</h1>
 
-                {% elif data[1] > 0.50 %}
+                {% elif data[1] > 50 %}
                 <h1 style="padding: 0px;">RESULT: COVID-19</h1>
 
-                {% elif data[2] > 0.50 %}
+                {% elif data[2] > 50 %}
                 <h1 style="padding: 0px;">RESULT: Healthy</h1>
                 
                 {%endif%}
